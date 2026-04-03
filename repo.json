@@ -1,0 +1,9 @@
+{
+  "name": "feliStream",
+  "packageName": "com.felis.plugin",
+  "description": "SkyStream plugins repository",
+  "manifestVersion": 1,
+  "pluginLists": [
+    "https://raw.githubusercontent.com/RizkyM2999/FeliStream/refs/heads/build/plugins.json"
+  ]
+}

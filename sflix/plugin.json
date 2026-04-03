@@ -1,0 +1,16 @@
+{
+  "packageName": "com.felis.plugin.sflix",
+  "name": "sflix",
+  "version": 1,
+  "baseUrl": "https://sflix.film",
+  "description": "sflix plugin",
+  "authors": [
+    "FelisSilvestris"
+  ],
+  "languages": [
+    "id"
+  ],
+  "categories": [
+    "Others"
+  ]
+}
