@@ -194,7 +194,7 @@
 	    return res + 'p';
 	}
 	
-	// 4. LOAD STREAMS
+		// 4. LOAD STREAMS
 	async function loadStreams(dataStr, cb) {
 	    try {
 	        const { id, se, ep, path } = JSON.parse(dataStr);
@@ -204,10 +204,32 @@
 	            "Referer": refererUrl
 	        });
 	
-	        if (!data || !data.data || !data.data.streams) {
+	        if (!data || !data.data || !data.data.streams || data.data.streams.length === 0) {
 	            return cb({ success: true, data: [] });
 	        }
-	
+	        
+	        // --- AMBIL SUBTITLE ---
+	        let subtitles = [];
+	        try {
+	            const firstStream = data.data.streams[0];
+	            if (firstStream && firstStream.id && firstStream.format) {
+	                const captionData = await fetchGet(`/wefeed-h5-bff/web/subject/caption?format=${firstStream.format}&id=${firstStream.id}&subjectId=${id}`, {
+	                    "Referer": refererUrl
+	                });
+	                
+	                if (captionData && captionData.data && captionData.data.captions) {
+	                    subtitles = captionData.data.captions.map(sub => ({
+	                        url: sub.url,
+	                        label: sub.lanName || sub.lan || "Unknown",
+	                        lang: sub.lanName || sub.lan || "Unknown"
+	                    })).filter(sub => sub.url); // Pastikan url valid
+	                }
+	            }
+	        } catch (subErr) {
+	            console.log("Error fetch subtitles: " + subErr.message);
+	        }
+	        // -----------------------
+
 	        // Match Kotlin: reversed() + distinctBy { it.url }
 	        const streams = data.data.streams
 	            .reverse()
@@ -217,8 +239,9 @@
 	                return new StreamResult({
 	                    url: s.url,
 	                    quality: reso,
-	                    source: reso, // KUNCI: Tambahkan 'source' di sini agar terbaca di UI aplikasi
-	                    headers: { "Referer": `${BASE_URL}/` }
+	                    source: reso,
+	                    headers: { "Referer": `${BASE_URL}/` },
+	                    subtitles: subtitles // Masukkan array subtitle ke sini
 	                });
 	            });
 	
@@ -227,6 +250,7 @@
 	        cb({ success: false, errorCode: "PARSE_ERROR", message: e.message });
 	    }
 	}
+
 
 
     globalThis.getHome = getHome;
