@@ -1,0 +1,36 @@
+[
+  {
+    "packageName": "com.felis.plugin.animek",
+    "name": "animek",
+    "version": 1,
+    "baseUrl": "https://api.sansekai.my.id/",
+    "description": "plugin for https://api.sansekai.my.id/ API",
+    "authors": [
+      "Developer"
+    ],
+    "languages": [
+      "id"
+    ],
+    "categories": [
+      "Others"
+    ],
+    "url": "https://raw.githubusercontent.com/RizkyM2999/FeliStream/build/com.felis.plugin.animek.sky"
+  },
+  {
+    "packageName": "com.felis.plugin.sflix",
+    "name": "sflix",
+    "version": 1,
+    "baseUrl": "https://sflix.film",
+    "description": "sflix plugin",
+    "authors": [
+      "FelisSilvestris"
+    ],
+    "languages": [
+      "id"
+    ],
+    "categories": [
+      "Others"
+    ],
+    "url": "https://raw.githubusercontent.com/RizkyM2999/FeliStream/build/com.felis.plugin.sflix.sky"
+  }
+]
