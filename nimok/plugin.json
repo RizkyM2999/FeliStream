@@ -1,0 +1,16 @@
+{
+  "packageName": "com.felis.plugin.nimok",
+  "name": "nimok",
+  "version": 1,
+  "baseUrl": "https://example.com",
+  "description": "nimok plugin for feliStream",
+  "authors": [
+    "FelisSilvestris"
+  ],
+  "languages": [
+    "id"
+  ],
+  "categories": [
+    "Anime"
+  ]
+}
