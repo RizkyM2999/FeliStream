@@ -74,6 +74,14 @@
                 });
             }
 
+            if (json.genres && json.genres.length > 0) {
+                json.genres.forEach(genre => {
+                    if (genre.title && genre.posters && genre.posters.length > 0) {
+                        result[genre.title] = genre.posters.map(mapPoster);
+                    }
+                });
+            }
+
             if (json.custom_lists && json.custom_lists.length > 0) {
                 json.custom_lists.forEach(list => {
                     if (list.title && list.items && list.items.length > 0) {
