@@ -1,7 +1,7 @@
 {
   "packageName": "com.felis.plugin.animek",
   "name": "animek",
-  "version": 1,
+  "version": 1.1,
   "baseUrl": "https://api.sansekai.my.id/",
   "description": "plugin for https://api.sansekai.my.id/ API",
   "authors": [
@@ -11,6 +11,6 @@
     "id"
   ],
   "categories": [
-    "Others"
+    "Anime"
   ]
 }
